@@ -1,0 +1,28 @@
+<p>test-home works!</p>
+
+Favorite Color: <input type="text" [formControl]="this.testForm.favoriteColorControl">
+<ng-container *ngIf="this.testForm.favoriteColorControl.errors?.['required']">
+    <div>
+        Favorite Color is required.
+    </div>
+</ng-container>
+<ng-container *ngIf="this.testForm.favoriteColorControl.errors?.['minlength']">
+    <div>
+        Favorite Color must be at least 4 characters long.
+    </div>
+</ng-container>
+
+<form [formGroup]="this.testForm.heroForm">
+    Name: <input type="text" id="name" class="form-control" formControlName="name" required>
+</form>
+
+<div *ngIf="this.testForm.name?.invalid && (this.testForm.name?.dirty || this.testForm.name?.touched)"
+    class="alert alert-danger">
+
+    <div *ngIf="this.testForm.name?.errors?.['required']">
+        Name is required.
+    </div>
+    <div *ngIf="this.testForm.name?.errors?.['minlength']">
+        Name must be at least 4 characters long.
+    </div>
+</div>
