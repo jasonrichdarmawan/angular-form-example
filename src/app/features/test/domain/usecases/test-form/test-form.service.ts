@@ -26,8 +26,6 @@ export class TestFormService {
       alterEgo: new FormControl(''),
       power: new FormControl('', Validators.required)
     })
-
-    this.heroForm.valueChanges.subscribe(_ => console.log(this.name?.errors))
   }
 
   get name() { return this.heroForm.get('name'); }
