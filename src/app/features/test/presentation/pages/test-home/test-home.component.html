@@ -25,4 +25,7 @@ Favorite Color: <input type="text" [formControl]="this.testForm.favoriteColorCon
     <div *ngIf="this.testForm.name?.errors?.['minlength']">
         Name must be at least 4 characters long.
     </div>
+    <div *ngIf="this.testForm.name?.errors?.['nameExists']">
+        Name already exists.
+    </div>
 </div>

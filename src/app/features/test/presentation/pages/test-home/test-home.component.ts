@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TestFormService } from '../../../domain/usecases/test-form.service';
+import { TestFormService } from '../../../domain/usecases/test-form/test-form.service';
 
 @Component({
   selector: 'app-test-home',
