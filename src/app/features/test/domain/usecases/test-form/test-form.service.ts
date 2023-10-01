@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AbstractControl, AsyncValidatorFn, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, FormArray, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { CheckIfNameExistsService } from '../check-if-name-exists/check-if-name-exists.service';
 import { Observable, map } from 'rxjs';
 
@@ -15,20 +15,34 @@ export class TestFormService {
     ]);
 
     this.heroForm = new FormGroup({
-      name: new FormControl('', [
-        Validators.required,
-        Validators.minLength(4),
-      ],
-      [
-        this.nameValidator()
-      ]
+      name: new FormControl('',
+        [
+          Validators.required,
+          Validators.minLength(4),
+        ],
+        [
+          this.nameValidator()
+        ]
       ),
-      alterEgo: new FormControl(''),
+      alterEgo: new FormArray([
+        new FormControl(
+          {
+            ego: "happy",
+          },
+        ),
+        new FormControl(
+          {
+            ego: "sad",
+          },
+        )
+      ]),
       power: new FormControl('', Validators.required)
     })
   }
 
   get name() { return this.heroForm.get('name'); }
+
+  get alterEgo() { return this.heroForm.get("alterEgo") as FormArray; }
 
   get power() { return this.heroForm.get('power'); }
 

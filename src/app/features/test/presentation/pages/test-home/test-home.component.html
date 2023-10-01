@@ -14,6 +14,12 @@ Favorite Color: <input type="text" [formControl]="this.testForm.favoriteColorCon
 
 <form [formGroup]="this.testForm.heroForm">
     Name: <input type="text" id="name" class="form-control" formControlName="name" required>
+    <ng-container *ngIf="this.testForm.name?.value != ''">
+        <div>Name: {{this.testForm.name?.value}}</div>
+    </ng-container>
+    <ng-container *ngFor="let item of this.testForm.alterEgo.controls">
+        <div>Alter Ego: {{item.value.ego}}</div>
+    </ng-container>
 </form>
 
 <div *ngIf="this.testForm.name?.invalid && (this.testForm.name?.dirty || this.testForm.name?.touched)"
