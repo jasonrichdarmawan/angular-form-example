@@ -57,4 +57,12 @@ export class TestFormService {
         );
     };
   }
+
+  pushAlterEgo(alterEgo: string) {
+    this.alterEgo.push(new FormControl(
+      {
+        ego: alterEgo
+      }
+    ))
+  }
 }
