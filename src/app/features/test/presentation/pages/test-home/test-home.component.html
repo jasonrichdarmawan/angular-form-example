@@ -19,8 +19,8 @@ Favorite Color: <input type="text" [formControl]="this.testForm.favoriteColorCon
     </ng-container>
     New Alter Ego: <input #newAlterEgo type="text" (keyup.enter)="this.testForm.pushAlterEgo(newAlterEgo.value)"><br>
     <div>Alter Ego length: {{this.testForm.alterEgo.controls.length}}</div>
-    <ng-container *ngFor="let item of this.testForm.alterEgo.controls">
-        <div>Alter Ego: {{item.value.ego}}</div>
+    <ng-container *ngFor="let item of this.testForm.alterEgo.controls; let i = index">
+        <div (click)="this.testForm.alterEgo.removeAt(i)">Alter Ego: {{item.value.ego}}</div>
     </ng-container>
 </form>
 
