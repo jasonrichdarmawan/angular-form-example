@@ -17,6 +17,7 @@ Favorite Color: <input type="text" [formControl]="this.testForm.favoriteColorCon
     <ng-container *ngIf="this.testForm.name?.value != ''">
         <div>Name: {{this.testForm.name?.value}}</div>
     </ng-container>
+    <div>Alter Ego length: {{this.testForm.alterEgo.controls.length}}</div>
     <ng-container *ngFor="let item of this.testForm.alterEgo.controls">
         <div>Alter Ego: {{item.value.ego}}</div>
     </ng-container>
