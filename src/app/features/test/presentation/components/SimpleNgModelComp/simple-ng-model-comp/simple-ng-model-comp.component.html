@@ -1,0 +1,7 @@
+<p>simple-ng-model-comp works!</p>
+<input [(ngModel)]="name" #inputRef="ngModel" required>
+
+<p>Value: {{ name }}</p>
+<p>Valid: {{ inputRef.valid }}</p>
+
+<button (click)="setValue()">Set value</button>

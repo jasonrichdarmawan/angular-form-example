@@ -4,19 +4,24 @@ import { CommonModule } from '@angular/common';
 import { TestRoutingModule } from './test-routing.module';
 import { TestHomeComponent } from './presentation/pages/test-home/test-home.component';
 import { TestFormService } from './domain/usecases/test-form/test-form.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CheckIfNameExistsService } from './domain/usecases/check-if-name-exists/check-if-name-exists.service';
+import { SimpleNgModelCompComponent } from './presentation/components/SimpleNgModelComp/simple-ng-model-comp/simple-ng-model-comp.component';
 
 @NgModule({
   declarations: [
     TestHomeComponent,
+    SimpleNgModelCompComponent,
   ],
   imports: [
     CommonModule,
     TestRoutingModule,
 
+    // TODO: standalone component for SimpleNgModelCompz
+    FormsModule,
+
     // TODO: standalone component for TestHomeComponent
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     // TODO: standalone component for TestHomeComponent
